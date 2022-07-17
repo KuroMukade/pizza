@@ -4,7 +4,6 @@ export function PizzaBlock({name, price, imageUrl, sizes, types}) {
   const [activeSize, setActiveSize] = useState(0); 
   const [activeType, setActiveType] = useState(0);
   const typeNames = ['тонкое', 'традиционное'];
-  console.log(name, price);
   return (
     <div className="pizza-block-wrapper">
       <div className="pizza-block">
