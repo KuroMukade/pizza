@@ -1,37 +1,47 @@
+import { useContext } from 'react';
+import { SearchContext } from '../../App';
+
 import styles from './Search.module.scss';
 
-const Search = ({ searchValue, setSearchValue }) => {
-  return (
+const Search = () => {
+    const { searchValue, setSearchValue } = useContext(SearchContext);
+
+    return (
     <div className={styles.root}>
-        <svg
-            className={styles.searchIcon}
-            viewBox="0 0 32 32" 
-            xmlns="http://www.w3.org/2000/svg">
-                <title/>
-                <g data-name="Layer 3" id="Layer_3">
-                    <path className="cls-1" d="M11,22A10,10,0,1,1,21,12,10,10,0,0,1,11,22ZM11,4a8,8,0,1,0,8,8A8,8,0,0,0,11,4Z"/>
-                    <path className="cls-1" d="M28,29.74a3,3,0,0,1-1.93-.7L19.94,23.9a3,3,0,0,1,3.86-4.6l6.13,5.14A3,3,0,0,1,28,29.74ZM21.87,20.6h-.09a1,1,0,0,0-.55,1.77l6.13,5.14a1,1,0,0,0,1.41-.12,1,1,0,0,0,.23-.73,1,1,0,0,0-.36-.68l-6.13-5.15A1,1,0,0,0,21.87,20.6Z"/>
-                    <path className="cls-1" d="M20,21a1,1,0,0,1-.64-.23L17,18.82a1,1,0,0,1,1.28-1.54l2.34,1.95a1,1,0,0,1,.13,1.41A1,1,0,0,1,20,21Z"/>
-                </g>
+        <svg className={styles.searchIcon} viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg">
+        <title />
+        <g data-name="Layer 3" id="Layer_3">
+            <path
+            className="cls-1"
+            d="M11,22A10,10,0,1,1,21,12,10,10,0,0,1,11,22ZM11,4a8,8,0,1,0,8,8A8,8,0,0,0,11,4Z"
+            />
+            <path
+            className="cls-1"
+            d="M28,29.74a3,3,0,0,1-1.93-.7L19.94,23.9a3,3,0,0,1,3.86-4.6l6.13,5.14A3,3,0,0,1,28,29.74ZM21.87,20.6h-.09a1,1,0,0,0-.55,1.77l6.13,5.14a1,1,0,0,0,1.41-.12,1,1,0,0,0,.23-.73,1,1,0,0,0-.36-.68l-6.13-5.15A1,1,0,0,0,21.87,20.6Z"
+            />
+            <path
+            className="cls-1"
+            d="M20,21a1,1,0,0,1-.64-.23L17,18.82a1,1,0,0,1,1.28-1.54l2.34,1.95a1,1,0,0,1,.13,1.41A1,1,0,0,1,20,21Z"
+            />
+        </g>
         </svg>
-        <input 
-            value={searchValue}
-            className={styles.input}
-            placeholder='Поиск пиццы...' 
-            onChange={(event) => setSearchValue(event.target.value)}
-        />  
-        {searchValue && 
-            <svg 
+        <input
+        value={searchValue}
+        className={styles.input}
+        placeholder="Поиск пиццы..."
+        onChange={(event) => setSearchValue(event.target.value)}
+        />
+        {searchValue && (
+        <svg
             onClick={() => setSearchValue('')}
             className={styles.clearIcon}
-            viewBox="0 0 20 20" 
+            viewBox="0 0 20 20"
             xmlns="http://www.w3.org/2000/svg">
-                <path d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z"/>
-            </svg>
-        }
+            <path d="M10 8.586L2.929 1.515 1.515 2.929 8.586 10l-7.071 7.071 1.414 1.414L10 11.414l7.071 7.071 1.414-1.414L11.414 10l7.071-7.071-1.414-1.414L10 8.586z" />
+        </svg>
+        )}
     </div>
-    
-  )
-}
+    );
+};
 
-export default Search
+export default Search;
